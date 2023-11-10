@@ -7,7 +7,6 @@
  *
  * return 0
  */
-
 int main(int ac, char *av[])
 {
 printf("arguments name: %ld\n", ac -1);
