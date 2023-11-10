@@ -8,17 +8,17 @@
  *
  * return 0
  */
-int main(int ac, char *av[])
+int main(int argc, char *argv[])
 {
-if (ac < 3)
+if (argc < 3)
 {
-printf("number: %s argument1 argument2\n", av[0]);
+printf("number: %s argument1 argument2\n", argv[0]);
 return 1;
 }
 char buffer1[100];
 char buffer2[100];
-strcpy(buffer1, av[1]);
-strcpy(buffer2, av[2]);
+strcpy(buffer1, argv[1]);
+strcpy(buffer2, argv[2]);
 printf("argument1: %s\n", buffer1);
 printf("argument2: %s\n", buffer2);
 return 0;
