@@ -1,18 +1,23 @@
 #include <stdio.h>
-#include <unistd.h>
+#include <string.h>
 
 /**
- * main - write a command line arguments using ac, av
- * -1 to exclude the program name
+ * main - write a command line arguments
+ *@b:buffer store and manipulate the command line arguments
+ *@s:strcpy copies a string
  *
  * return 0
  */
 int main(int ac, char *av[])
 {
-printf("arguments name: %ld\n", ac -1);
-for ( int b = 0; b < ac ; b++)
+if (ac < 3)
 {
-printf("arguments %d: %s\n", b, av[b]);
+printf("number: %s argument1 argument2\n", av[0]);
+return 1;
 }
+strcpy(buffer1, av[1]);
+strcpy(buffer2, av[2]);
+printf("Argument 1: %s\n", buffer1);
+printf("Argument 2: %s\n", buffer2);
 return 0;
 }
