@@ -12,14 +12,14 @@ int main(int ac, char *av[])
 {
 if (ac < 3)
 {
-printf("number: %s argument1 argument2\n", av[0]);
+printf("number: %s argument 1 argument 2\n", av[0]);
 return 1;
 }
 char buffer1[100];
 char buffer2[100];
 strcpy(buffer1, av[1]);
 strcpy(buffer2, av[2]);
-printf("Argument 1: %s\n", buffer1);
-printf("Argument 2: %s\n", buffer2);
+printf("argument 1: %s\n", buffer1);
+printf("argument 2: %s\n", buffer2);
 return 0;
 }
