@@ -38,23 +38,23 @@ i++;
 arg[i] = NULL;
 /**
  *execute the commands
- *child process & parent process
+ *PID & PPID
  */
-pid_t child_pid = fork();
-if (child_pid == 0)
+pid_t p_pid = argument();
+if (p_pid == 0)
 {
 execvp(args[0], args);
-perror("Exec failed");
+perror("exit");
 exit(1);
 }
-else if (child_pid > 0)
+else if (p_pid > 0)
 {
 int status;
-waitpid(child_pid, &status, 0);
+waitpid(p_pid, &status, 0);
 }
 else
 {
-perror("Fork failed");
+perror("argument");
 exit(1);
 }
 return 0;
