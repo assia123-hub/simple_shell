@@ -17,11 +17,11 @@ char input[MAX_INPUT_SIZE];
 while(1)
 {
 printf("input: ");
-if (fgets(input, sizeof(input), strlin) ==NULL)
+if (fgets(input, sizeof(input), stdin) ==NULL)
 {
 break;
 }
-size_t input_length = (strlen(input);
+size_t input_length = strlen(input;
 if (input_length > 0 && input[input_length -1])
 {
 input[input_length -1] = '\0';
@@ -31,7 +31,7 @@ char *user = strtok(input, " ");
 int i =0;
 while (user !=NULL && i < MAX_ARG_SIZE -1)
 {
-arg[i] = user;
+args[i] = user;
 user = strtok ( NULL, " ");
 i++;
 }
@@ -40,7 +40,7 @@ arg[i] = NULL;
  *execute the commands
  *PID & PPID
  */
-pid_t p_pid = argument();
+pid_t p_pid = fork();
 if (p_pid == 0)
 {
 execvp(args[0], args);
@@ -56,6 +56,7 @@ else
 {
 perror("argument");
 exit(1);
+}
 }
 return 0;
 }
