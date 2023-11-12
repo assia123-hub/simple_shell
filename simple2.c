@@ -17,7 +17,7 @@ char input[MAX_INPUT_SIZE];
 while(1)
 {
 printf("input: ")
-if (fgets(input, size_of(input), strlen) ==NULL)
+if (fgets(input, sizeof(input), strlin) ==NULL)
 {
 break;
 }
