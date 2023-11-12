@@ -44,7 +44,7 @@ pid_t p_pid = fork();
 if (p_pid == 0)
 {
 execvp(args[0], args);
-perror("exit");
+perror("exit_failur");
 exit(1);
 }
 else if (p_pid > 0)
@@ -54,7 +54,7 @@ waitpid(p_pid, &status, 0);
 }
 else
 {
-perror("argument");
+perror("fork");
 exit(1);
 }
 }
