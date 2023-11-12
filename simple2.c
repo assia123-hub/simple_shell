@@ -38,6 +38,13 @@ user = strtok ( NULL, " ");
 i++;
 }
 arg[i] = NULL;
-
+/**
+ *execute the commands
+ */
+if (child_pid == 0) {
+execvp(args[0], args);
+perror("Exec failed");
+exit(1);
+}
 return 0;
 }
