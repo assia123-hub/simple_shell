@@ -21,11 +21,10 @@ if (fgets(input, sizeof(input), strlin) ==NULL)
 {
 break;
 }
+}
 size_t input_length = (strlen(input);
 if (input_length > 0 && input[input_length -1])
-{
 input[input_length -1] = '\0';
-}
 }
 char *args[MAX_ARG_SIZE];
 char *user = strtok(input, " ");
@@ -40,10 +39,22 @@ i++;
 arg[i] = NULL;
 /**
  *execute the commands
+ *child process & parent process
  */
-if (child_pid == 0) {
+pid_t child_pid = fork();
+if (child_pid == 0)
+{
 execvp(args[0], args);
 perror("Exec failed");
+exit(1);
+}
+else if (child_pid > 0)
+{
+int status;
+waitpid(child_pid, &status, 0);
+} else
+{
+perror("Fork failed");
 exit(1);
 }
 return 0;
