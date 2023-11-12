@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdio.h>
-#include <shell.h>
+#include "shell.h"
 
 #define MAX_INPUT_SIZE 1024
 #define MAX_ARG_SIZE 64
@@ -21,8 +21,8 @@ if (fgets(input, sizeof(input), stdin) ==NULL)
 {
 break;
 }
-size_t input_length = strlen(input;
-if (input_length > 0 && input[input_length -1])
+size_t input_length = strlen(input);
+if (input_length > 0 && input[input_length -1]== '\0')
 {
 input[input_length -1] = '\0';
 }
@@ -35,7 +35,7 @@ args[i] = user;
 user = strtok ( NULL, " ");
 i++;
 }
-arg[i] = NULL;
+args[i] = NULL;
 /**
  *execute the commands
  *PID & PPID
@@ -44,7 +44,7 @@ pid_t p_pid = fork();
 if (p_pid == 0)
 {
 execvp(args[0], args);
-perror("exit_failur");
+perror("execvp");
 exit(1);
 }
 else if (p_pid > 0)
