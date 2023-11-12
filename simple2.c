@@ -21,15 +21,14 @@ if (fgets(input, sizeof(input), strlin) ==NULL)
 {
 break;
 }
-}
 size_t input_length = (strlen(input);
 if (input_length > 0 && input[input_length -1])
+{
 input[input_length -1] = '\0';
 }
 char *args[MAX_ARG_SIZE];
 char *user = strtok(input, " ");
 int i =0;
-{
 while (user !=NULL && i < MAX_ARG_SIZE -1)
 {
 arg[i] = user;
@@ -52,7 +51,8 @@ else if (child_pid > 0)
 {
 int status;
 waitpid(child_pid, &status, 0);
-} else
+}
+else
 {
 perror("Fork failed");
 exit(1);
