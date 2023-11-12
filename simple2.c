@@ -1,25 +1,43 @@
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
+#include <shell.h>
 
+#define MAX_INPUT_SIZE 1024
+#define MAX_ARG_SIZE 64
 /**
- * main - write a command line arguments
- *@b:buffer store and manipulate the command line arguments
- *@s:strcpy copies a string
- *
- * return 0
+ *main - define maximum input buffer size
+ *break if condition is true
+ *input processing
+ *define maximum number of arguments
+ *loop that continues as long as there are more tokens to process
  */
-int main(int argc, char *argv[])
+int main()
 {
-if (argc < 3)
+char input[MAX_INPUT_SIZE];
+while(1)
 {
-printf("number: %s argument1 argument2\n", argv[0]);
-return 1;
+printf("input: ")
+if (fgets(input, size_of(input), strlen) ==NULL)
+{
+break;
 }
-char buffer1[100];
-char buffer2[100];
-strcpy(buffer1, argv[1]);
-strcpy(buffer2, argv[2]);
-printf("argument1: %s\n", buffer1);
-printf("argument2: %s\n", buffer2);
+size_t input_length = (strlen(input);
+if (input_length > 0 && input[input_length -1])
+{
+input[input_length -1] = '\0';
+}
+}
+char *args[MAX_ARG_SIZE];
+char *user = strtok(input, " ");
+int i =0;
+{
+while (user !=NULL && i < MAX_ARG_SIZE -1)
+{
+arg[i] = user;
+user = strtok ( NULL, " ");
+i++;
+}
+arg[i] = NULL;
+
 return 0;
 }
