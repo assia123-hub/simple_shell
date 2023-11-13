@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "shell.h"
+#include "main.c"
 
 #define MAX_INPUT_SIZE 1024
 #define MAX_ARG_SIZE 64
