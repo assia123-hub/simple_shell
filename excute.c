@@ -1,28 +1,28 @@
 #include "shell.h"
 
-int execute(char **arguments)
+int execute(char **arguments) 
 {
-    int status = 0;
-    pid_t child_pid;
+    pid_t child_pid = fork();
 
-    child_pid = fork();
-    if (child_pid == -1)
+    if (child_pid == -1) 
     {
         perror("fork");
         exit(EXIT_FAILURE);
     }
 
-    if (child_pid == 0) {
-        if (execve(arguments[0], arguments, NULL) == -1)
+    if (child_pid == 0) 
+    {
+        if (execvp(arguments[0], arguments) == -1) 
         {
-            perror("execve");
+            perror("execvp");
             exit(EXIT_FAILURE);
         }
-    }
-    else
+    } 
+    else 
     {
+        int status;
         waitpid(child_pid, &status, 0);
+        return status;
     }
-
-    return status;
+    return -1;
 }

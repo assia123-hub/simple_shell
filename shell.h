@@ -27,5 +27,5 @@ char **tokenizer(char *line);
 void _putchar(char c);
 char *_strdup(const char *str);
 char *_strchr(const char *str, int c);
-
+void _puts(char *str);
 #endif
