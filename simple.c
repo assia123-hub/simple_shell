@@ -1,4 +1,6 @@
-#include "shell.h"
+#include <stdlib.h>
+#include <string.h>
+#include "main.h"
 
 char *_getpath_alternative(char *command) {
     struct stat st;
@@ -21,18 +23,9 @@ char *_getpath_alternative(char *command) {
     char *dir_start = path_copy;
     char *dir_end;
     while ((dir_end = strchr(dir_start, ':')) != NULL || *dir_start != '\0') {
-        size_t dir_len;
-        if (dir_end != NULL) 
-        {
-            dir_len = (size_t)(dir_end - dir_start);
-            }
-            else 
-            {
-    dir_len = strlen(dir_start);
-}
+        size_t dir_len = (dir_end != NULL) ? (size_t)(dir_end - dir_start) : strlen(dir_start);
 
         size_t full_cmd_len = dir_len + 1 + strlen(command) + 1;
-
         char *full_cmd = malloc(full_cmd_len);
         if (!full_cmd) {
             perror("malloc");
@@ -53,10 +46,11 @@ char *_getpath_alternative(char *command) {
         if (dir_end != NULL) {
             dir_start = dir_end + 1;
         } else {
-            break;  // End of the PATH
+            break;
         }
     }
 
     free(path_copy);
     return NULL;
 }
+
