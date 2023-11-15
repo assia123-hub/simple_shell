@@ -19,13 +19,14 @@
 char *full_path(char *start, char *command, struct stat *s);
 char *_path(char *command);
 char *_getpath_alternative(char *command);
-char* _getline(void);
+char *get_line(void);
 int execute(char **arguments);
 char **tokenizer(char *line);
 
 /*---string---*/
 void _putchar(char c);
-char *_strdup(const char *str);
-char *_strchr(const char *str, int c);
 void _puts(char *str);
+char *_strdup(const char *str);
+char *_strchr(const char *str, int c);
+
 #endif

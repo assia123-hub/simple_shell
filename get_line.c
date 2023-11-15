@@ -1,33 +1,36 @@
 #include "shell.h"
-
-char* _getline(void)
+/**
+ * get_line - Read a line of input from the user.
+ *
+ * Return: A dynamically allocated string containing the input line.
+ */
+char *get_line(void)
 {
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t n;
+	char *line = NULL;
+	size_t len = 0;
+	ssize_t n;
 
-    if (isatty(STDIN_FILENO))
-    {
-        write(STDOUT_FILENO, "$ ", 2);
-    }
+	if (isatty(STDIN_FILENO))
+	{
+		write(STDOUT_FILENO, "$ ", 2);
+	}
 
-    n = getline(&line, &len, stdin);
+	n = getline(&line, &len, stdin);
 
-    if (n == -1)
-    {
-        free(line);
-        if (feof(stdin))
-        {
-            exit(EXIT_SUCCESS);
-        }
-         else
-         {
-            perror("getline");
-            exit(EXIT_FAILURE);
-        }
-        free(line);
-        line = NULL;
-    }
+	if (n == -1)
 
-    return line;
+	{
+		free(line);
+		if (feof(stdin))
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("getline");
+			exit(EXIT_FAILURE);
+		}
+		free(line);
+	}
+	return (line);
 }
