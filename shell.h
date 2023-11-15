@@ -28,5 +28,5 @@ void _putchar(char c);
 void _puts(char *str);
 char *_strdup(const char *str);
 char *_strchr(const char *str, int c);
-
+extern char **environ;
 #endif
