@@ -2,8 +2,6 @@
 #define SHELL_H
 #define MAX_INPUT_SIZE 1024
 #define MAX_ARG_SIZE 64
-
-/*---LIBRARIES---*/
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -13,7 +11,6 @@
 #include <errno.h>
 #include <fcntl.h>
 
-/*---PROTOTYPES---*/
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 void _puts(char *str);
@@ -23,6 +20,7 @@ char *_strchr(char *s, char c);
 char *_strdup(char *str);
 char* _getline(void);
 char **my_split(char *line);
+char *read_string(void);
 
 int tokenize_input(const char *input, char *args[]);
 void execute_command(char *args[]);
